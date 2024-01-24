@@ -1,0 +1,2707 @@
+{
+  "last_node_id": 85,
+  "last_link_id": 127,
+  "nodes": [
+    {
+      "id": 22,
+      "type": "SamplerDPMPP_SDE",
+      "pos": [
+        3076.0979224282332,
+        1245.7180801118257
+      ],
+      "size": [
+        315,
+        130
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "SAMPLER",
+          "type": "SAMPLER",
+          "links": [
+            26
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SamplerDPMPP_SDE"
+      },
+      "widgets_values": [
+        1,
+        1,
+        0.5,
+        "gpu"
+      ],
+      "locked": true
+    },
+    {
+      "id": 20,
+      "type": "SDTurboScheduler",
+      "pos": [
+        3076.0979224282332,
+        1455.718080111827
+      ],
+      "size": [
+        315,
+        82
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 19
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            25
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SDTurboScheduler"
+      },
+      "widgets_values": [
+        10,
+        1
+      ],
+      "locked": true
+    },
+    {
+      "id": 37,
+      "type": "Unpack SDXL Tuple",
+      "pos": [
+        3596.6868924555506,
+        1928.025128113808
+      ],
+      "size": [
+        270,
+        170
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "sdxl_tuple",
+          "type": "SDXL_TUPLE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "BASE_MODEL",
+          "type": "MODEL",
+          "links": [
+            47
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "BASE_CLIP",
+          "type": "CLIP",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "BASE_CONDITIONING+",
+          "type": "CONDITIONING",
+          "links": [
+            48
+          ],
+          "shape": 3,
+          "slot_index": 2
+        },
+        {
+          "name": "BASE_CONDITIONING-",
+          "type": "CONDITIONING",
+          "links": [
+            49
+          ],
+          "shape": 3,
+          "slot_index": 3
+        },
+        {
+          "name": "REFINER_MODEL",
+          "type": "MODEL",
+          "links": [
+            50
+          ],
+          "shape": 3,
+          "slot_index": 4
+        },
+        {
+          "name": "REFINER_CLIP",
+          "type": "CLIP",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "REFINER_CONDITIONING+",
+          "type": "CONDITIONING",
+          "links": [
+            51
+          ],
+          "shape": 3,
+          "slot_index": 6
+        },
+        {
+          "name": "REFINER_CONDITIONING-",
+          "type": "CONDITIONING",
+          "links": [
+            52
+          ],
+          "shape": 3,
+          "slot_index": 7
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Unpack SDXL Tuple"
+      },
+      "shape": 1,
+      "locked": true
+    },
+    {
+      "id": 65,
+      "type": "diffus3.GetNode",
+      "pos": [
+        3786.6868924555524,
+        2148.0251281138076
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            103
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "Concept Image"
+      ]
+    },
+    {
+      "id": 39,
+      "type": "SeargeSamplerInputs",
+      "pos": [
+        3556.6868924555506,
+        2208.0251281138067
+      ],
+      "size": [
+        315,
+        102
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "sampler_name",
+          "type": "SAMPLER_NAME",
+          "links": [
+            58
+          ],
+          "shape": 3
+        },
+        {
+          "name": "scheduler",
+          "type": "SCHEDULER_NAME",
+          "links": [
+            59
+          ],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SeargeSamplerInputs"
+      },
+      "widgets_values": [
+        "dpmpp_3m_sde",
+        "karras"
+      ],
+      "locked": true
+    },
+    {
+      "id": 72,
+      "type": "Anything Everywhere",
+      "pos": [
+        3346.6868924555497,
+        1978.0251281138078
+      ],
+      "size": {
+        "0": 210,
+        "1": 26
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "SDXL_TUPLE",
+          "type": "*",
+          "link": 111,
+          "color_on": ""
+        }
+      ],
+      "properties": {
+        "group_restricted": false,
+        "color_restricted": false,
+        "Node name for S&R": "Anything Everywhere"
+      }
+    },
+    {
+      "id": 71,
+      "type": "Anything Everywhere",
+      "pos": [
+        3346.6868924555497,
+        2018.0251281138078
+      ],
+      "size": {
+        "0": 210,
+        "1": 26
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "VAE",
+          "type": "*",
+          "link": 110,
+          "color_on": "#be616b"
+        }
+      ],
+      "properties": {
+        "group_restricted": false,
+        "color_restricted": false,
+        "Node name for S&R": "Anything Everywhere"
+      }
+    },
+    {
+      "id": 36,
+      "type": "Eff. Loader SDXL",
+      "pos": [
+        2916.686892455549,
+        1948.0251281138078
+      ],
+      "size": [
+        390,
+        320
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "lora_stack",
+          "type": "LORA_STACK",
+          "link": 57,
+          "slot_index": 0
+        },
+        {
+          "name": "cnet_stack",
+          "type": "CONTROL_NET_STACK",
+          "link": null
+        },
+        {
+          "name": "positive",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "positive"
+          }
+        },
+        {
+          "name": "negative",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "negative"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SDXL_TUPLE",
+          "type": "SDXL_TUPLE",
+          "links": [
+            111
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            110
+          ],
+          "shape": 3,
+          "slot_index": 2
+        },
+        {
+          "name": "DEPENDENCIES",
+          "type": "DEPENDENCIES",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Eff. Loader SDXL"
+      },
+      "widgets_values": [
+        "SDXL_ProtovisionXL\\protovisionXLHighFidelity3D_releaseV660Bakedvae.safetensors",
+        -2,
+        "None",
+        -2,
+        6,
+        2,
+        "Baked VAE",
+        "CLIP_POSITIVE",
+        "CLIP_NEGATIVE",
+        "none",
+        "comfy",
+        1024,
+        1024,
+        1
+      ],
+      "color": "#223333",
+      "bgcolor": "#335555",
+      "shape": 1,
+      "locked": true
+    },
+    {
+      "id": 38,
+      "type": "LoRA Stacker",
+      "pos": [
+        2566.686892455548,
+        1948.0251281138078
+      ],
+      "size": [
+        320,
+        130
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "lora_stack",
+          "type": "LORA_STACK",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LORA_STACK",
+          "type": "LORA_STACK",
+          "links": [
+            57
+          ],
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoRA Stacker"
+      },
+      "widgets_values": [
+        "simple",
+        1,
+        "SDXL_Origin_LORA\\sd_xl_offset_example-lora_1.0.safetensors",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1,
+        "None",
+        1,
+        1,
+        1
+      ],
+      "color": "#222233",
+      "bgcolor": "#333355",
+      "shape": 1,
+      "locked": true
+    },
+    {
+      "id": 12,
+      "type": "PreviewImage",
+      "pos": [
+        503.00302344555837,
+        159.15589420851413
+      ],
+      "size": [
+        880,
+        550
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 108
+        }
+      ],
+      "title": "Concept Image Preview",
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "locked": true
+    },
+    {
+      "id": 24,
+      "type": "Reroute",
+      "pos": [
+        3087.551700318496,
+        1586.014784156409
+      ],
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 29
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            30
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": true,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 25,
+      "type": "Reroute",
+      "pos": [
+        3797.551700318496,
+        1586.014784156409
+      ],
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 32,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 30
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            31
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": true,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 23,
+      "type": "VAEDecode",
+      "pos": [
+        3987.5517003184955,
+        1136.014784156409
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 37,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 28
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 31
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            101
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "locked": true
+    },
+    {
+      "id": 47,
+      "type": "PreviewImage",
+      "pos": [
+        500,
+        770
+      ],
+      "size": [
+        1790,
+        1190
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": null,
+          "slot_index": 0
+        }
+      ],
+      "title": "Final Image Preview",
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "locked": true
+    },
+    {
+      "id": 35,
+      "type": "SeargeSDXLImage2ImageSampler2",
+      "pos": [
+        3940.343505859375,
+        1920
+      ],
+      "size": [
+        320,
+        700
+      ],
+      "flags": {},
+      "order": 33,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "base_model",
+          "type": "MODEL",
+          "link": 47
+        },
+        {
+          "name": "base_positive",
+          "type": "CONDITIONING",
+          "link": 48
+        },
+        {
+          "name": "base_negative",
+          "type": "CONDITIONING",
+          "link": 49
+        },
+        {
+          "name": "refiner_model",
+          "type": "MODEL",
+          "link": 50
+        },
+        {
+          "name": "refiner_positive",
+          "type": "CONDITIONING",
+          "link": 51
+        },
+        {
+          "name": "refiner_negative",
+          "type": "CONDITIONING",
+          "link": 52
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 103
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null
+        },
+        {
+          "name": "sampler_name",
+          "type": "SAMPLER_NAME",
+          "link": 58,
+          "slot_index": 8
+        },
+        {
+          "name": "scheduler",
+          "type": "SCHEDULER_NAME",
+          "link": 59
+        },
+        {
+          "name": "upscale_model",
+          "type": "UPSCALE_MODEL",
+          "link": null,
+          "slot_index": 10
+        },
+        {
+          "name": "scaled_width",
+          "type": "INT",
+          "link": 63,
+          "widget": {
+            "name": "scaled_width"
+          }
+        },
+        {
+          "name": "scaled_height",
+          "type": "INT",
+          "link": 64,
+          "widget": {
+            "name": "scaled_height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            65,
+            66
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SeargeSDXLImage2ImageSampler2"
+      },
+      "widgets_values": [
+        641595770416999,
+        "randomize",
+        30,
+        7,
+        1,
+        0.25,
+        1536,
+        1536,
+        1,
+        0,
+        0
+      ],
+      "locked": true
+    },
+    {
+      "id": 42,
+      "type": "GetImageSize",
+      "pos": [
+        3660,
+        2370
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 62
+        }
+      ],
+      "outputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            63
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            64
+          ],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetImageSize"
+      },
+      "locked": true
+    },
+    {
+      "id": 64,
+      "type": "diffus3.GetNode",
+      "pos": [
+        3330,
+        2300
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 6,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            102
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "Concept Image"
+      ]
+    },
+    {
+      "id": 41,
+      "type": "ImageScaleBy",
+      "pos": [
+        3300,
+        2370
+      ],
+      "size": [
+        315,
+        82
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 102
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            62
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageScaleBy"
+      },
+      "widgets_values": [
+        "nearest-exact",
+        1.25
+      ],
+      "locked": true
+    },
+    {
+      "id": 43,
+      "type": "PreviewImage",
+      "pos": [
+        2570,
+        2500
+      ],
+      "size": [
+        1300,
+        800
+      ],
+      "flags": {},
+      "order": 38,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 65
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "locked": true
+    },
+    {
+      "id": 68,
+      "type": "Anything Everywhere",
+      "pos": [
+        4490,
+        1860
+      ],
+      "size": {
+        "0": 210,
+        "1": 26
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 41,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "IMAGE",
+          "type": "*",
+          "link": 106,
+          "color_on": "#80a1c0"
+        }
+      ],
+      "properties": {
+        "group_restricted": false,
+        "color_restricted": false,
+        "Node name for S&R": "Anything Everywhere"
+      }
+    },
+    {
+      "id": 44,
+      "type": "UltimateSDUpscale",
+      "pos": [
+        4360,
+        1920
+      ],
+      "size": [
+        320,
+        830
+      ],
+      "flags": {},
+      "order": 39,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 66
+        },
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 76,
+          "slot_index": 1
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 77
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 78
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": null,
+          "slot_index": 4
+        },
+        {
+          "name": "upscale_model",
+          "type": "UPSCALE_MODEL",
+          "link": null,
+          "slot_index": 5
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            106
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UltimateSDUpscale"
+      },
+      "widgets_values": [
+        2,
+        1080362741977452,
+        "randomize",
+        20,
+        8,
+        "dpmpp_3m_sde",
+        "karras",
+        0.2,
+        "Linear",
+        1024,
+        1024,
+        8,
+        32,
+        "Half Tile + Intersections",
+        1,
+        64,
+        8,
+        16,
+        true,
+        false
+      ],
+      "locked": true
+    },
+    {
+      "id": 46,
+      "type": "Unpack SDXL Tuple",
+      "pos": [
+        3990,
+        2680
+      ],
+      "size": [
+        270,
+        170
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "sdxl_tuple",
+          "type": "SDXL_TUPLE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "BASE_MODEL",
+          "type": "MODEL",
+          "links": [
+            76
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "BASE_CLIP",
+          "type": "CLIP",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "BASE_CONDITIONING+",
+          "type": "CONDITIONING",
+          "links": [
+            77
+          ],
+          "shape": 3,
+          "slot_index": 2
+        },
+        {
+          "name": "BASE_CONDITIONING-",
+          "type": "CONDITIONING",
+          "links": [
+            78
+          ],
+          "shape": 3,
+          "slot_index": 3
+        },
+        {
+          "name": "REFINER_MODEL",
+          "type": "MODEL",
+          "links": [],
+          "shape": 3,
+          "slot_index": 4
+        },
+        {
+          "name": "REFINER_CLIP",
+          "type": "CLIP",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "REFINER_CONDITIONING+",
+          "type": "CONDITIONING",
+          "links": [],
+          "shape": 3,
+          "slot_index": 6
+        },
+        {
+          "name": "REFINER_CONDITIONING-",
+          "type": "CONDITIONING",
+          "links": [],
+          "shape": 3,
+          "slot_index": 7
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Unpack SDXL Tuple"
+      },
+      "shape": 1,
+      "locked": true
+    },
+    {
+      "id": 40,
+      "type": "UpscaleModelLoader",
+      "pos": [
+        3940,
+        2910
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "UPSCALE_MODEL",
+          "type": "UPSCALE_MODEL",
+          "links": [
+            109
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UpscaleModelLoader"
+      },
+      "widgets_values": [
+        "4x_NMKD-Superscale-SP_178000_G.pth"
+      ],
+      "locked": true
+    },
+    {
+      "id": 70,
+      "type": "Anything Everywhere",
+      "pos": [
+        4080,
+        3020
+      ],
+      "size": {
+        "0": 210,
+        "1": 26
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "UPSCALE_MODEL",
+          "type": "*",
+          "link": 109,
+          "color_on": ""
+        }
+      ],
+      "properties": {
+        "group_restricted": false,
+        "color_restricted": false,
+        "Node name for S&R": "Anything Everywhere"
+      }
+    },
+    {
+      "id": 62,
+      "type": "diffus3.SetNode",
+      "pos": [
+        4118.005557740369,
+        1226.3115370860965
+      ],
+      "size": [
+        210,
+        58
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 40,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "link": 101
+        }
+      ],
+      "properties": {
+        "previousName": "Concept Image"
+      },
+      "widgets_values": [
+        "Concept Image"
+      ]
+    },
+    {
+      "id": 69,
+      "type": "diffus3.GetNode",
+      "pos": [
+        500,
+        120
+      ],
+      "size": {
+        "0": 210,
+        "1": 58
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 9,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            108
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "Concept Image"
+      ]
+    },
+    {
+      "id": 74,
+      "type": "Anything Everywhere",
+      "pos": [
+        30,
+        360
+      ],
+      "size": {
+        "0": 210,
+        "1": 26
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "LATENT",
+          "type": "*",
+          "link": 115,
+          "color_on": "#b38ead"
+        }
+      ],
+      "properties": {
+        "group_restricted": false,
+        "color_restricted": false,
+        "Node name for S&R": "Anything Everywhere"
+      }
+    },
+    {
+      "id": 19,
+      "type": "SDXL Empty Latent Image",
+      "pos": [
+        33.00302344555848,
+        409.1558942085143
+      ],
+      "size": [
+        315,
+        82
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            115
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SDXL Empty Latent Image"
+      },
+      "widgets_values": [
+        "1280 x 768 (1.67)",
+        1
+      ],
+      "color": "#30cea7",
+      "bgcolor": "#1cba93",
+      "locked": true
+    },
+    {
+      "id": 21,
+      "type": "SamplerCustom",
+      "pos": [
+        3516.0979224282337,
+        1135.718080111825
+      ],
+      "size": [
+        360,
+        410
+      ],
+      "flags": {},
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 20
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 23
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 24
+        },
+        {
+          "name": "sampler",
+          "type": "SAMPLER",
+          "link": 26,
+          "slot_index": 3
+        },
+        {
+          "name": "sigmas",
+          "type": "SIGMAS",
+          "link": 25
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": null
+        },
+        {
+          "name": "noise_seed",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "noise_seed"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "LATENT",
+          "links": [
+            28
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "denoised_output",
+          "type": "LATENT",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SamplerCustom"
+      },
+      "widgets_values": [
+        true,
+        52129821423123,
+        "randomize",
+        2
+      ],
+      "locked": true
+    },
+    {
+      "id": 10,
+      "type": "StyleSelecto",
+      "pos": [
+        3194.658535796508,
+        120.56894216796881
+      ],
+      "size": [
+        500,
+        600
+      ],
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "link": 36,
+          "widget": {
+            "name": "prompt"
+          }
+        },
+        {
+          "name": "negative_prompt",
+          "type": "STRING",
+          "link": 124,
+          "widget": {
+            "name": "negative_prompt"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "正向提示词",
+          "type": "STRING",
+          "links": [
+            100,
+            112
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "反向提示词",
+          "type": "STRING",
+          "links": [
+            126,
+            127
+          ],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "values": [
+          "futuristic-futuristic",
+          "Surrealism",
+          "Abstract Expressionism",
+          "Whimsical and Playful",
+          "Luxurious Elegance",
+          "Neo-Impressionism",
+          "Avant-garde",
+          "Art Nouveau",
+          "Japanese Ink Drawing",
+          "mre-comic",
+          "Ornate and Intricate",
+          "DMT Art Style",
+          "futuristic-sci-fi",
+          "misc-dystopian"
+        ],
+        "selTags": {
+          "futuristic-futuristic": {
+            "imgName": "futuristic_futuristic",
+            "tag": "futuristic-futuristic",
+            "name": "未来主义-未来主义"
+          },
+          "Surrealism": {
+            "imgName": "surrealism",
+            "tag": "Surrealism",
+            "name": "超现实主义"
+          },
+          "Abstract Expressionism": {
+            "imgName": "abstract_expressionism",
+            "tag": "Abstract Expressionism",
+            "name": "抽象表现主义"
+          },
+          "Whimsical and Playful": {
+            "imgName": "whimsical_and_playful",
+            "tag": "Whimsical and Playful",
+            "name": "异想天开、俏皮"
+          },
+          "Luxurious Elegance": {
+            "imgName": "luxurious_elegance",
+            "tag": "Luxurious Elegance",
+            "name": "奢华优雅"
+          },
+          "Neo-Impressionism": {
+            "imgName": "neo_impressionism",
+            "tag": "Neo-Impressionism",
+            "name": "新印象派"
+          },
+          "Avant-garde": {
+            "imgName": "avant_garde",
+            "tag": "Avant-garde",
+            "name": "前卫"
+          },
+          "Art Nouveau": {
+            "imgName": "art_nouveau",
+            "tag": "Art Nouveau",
+            "name": "新艺术，美丽艺术"
+          },
+          "Japanese Ink Drawing": {
+            "imgName": "japanese_ink_drawing",
+            "tag": "Japanese Ink Drawing",
+            "name": "日式水墨画"
+          },
+          "mre-comic": {
+            "imgName": "mre_comic",
+            "tag": "mre-comic",
+            "name": "MRE-成人漫画书插画"
+          },
+          "Ornate and Intricate": {
+            "imgName": "ornate_and_intricate",
+            "tag": "Ornate and Intricate",
+            "name": "华丽而复杂"
+          },
+          "DMT Art Style": {
+            "imgName": "dmt_art_style",
+            "tag": "DMT Art Style",
+            "name": "迷幻艺术风格"
+          },
+          "futuristic-sci-fi": {
+            "imgName": "futuristic_sci_fi",
+            "tag": "futuristic-sci-fi",
+            "name": "未来主义-科幻"
+          },
+          "misc-dystopian": {
+            "imgName": "misc_dystopian",
+            "tag": "misc-dystopian",
+            "name": "其他-反乌托邦"
+          }
+        },
+        "Node name for S&R": "StyleSelecto"
+      },
+      "widgets_values": [
+        "",
+        "sdxl_styles_twri",
+        "",
+        "futuristic-futuristic,Surrealism,Abstract Expressionism,Whimsical and Playful,Luxurious Elegance,Neo-Impressionism,Avant-garde,Art Nouveau,Japanese Ink Drawing,mre-comic,Ornate and Intricate,DMT Art Style,futuristic-sci-fi,misc-dystopian"
+      ],
+      "locked": true
+    },
+    {
+      "id": 73,
+      "type": "Prompts Everywhere",
+      "pos": [
+        3514.658535796508,
+        770.5689421679685
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 36,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "STRING",
+          "type": "*",
+          "link": 112,
+          "color_on": ""
+        },
+        {
+          "name": "STRING",
+          "type": "*",
+          "link": 127,
+          "color_on": ""
+        }
+      ],
+      "properties": {
+        "group_restricted": false,
+        "color_restricted": false,
+        "Node name for S&R": "Prompts Everywhere"
+      }
+    },
+    {
+      "id": 13,
+      "type": "ShowText|pysssss",
+      "pos": [
+        3724.658535796508,
+        130.5689421679688
+      ],
+      "size": [
+        340,
+        350
+      ],
+      "flags": {},
+      "order": 34,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 100,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "title": "Positive Prompt Review🐍",
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "dystopian style sci-fi style DMT Art Style, Ornate and Intricate, breathtaking illustration from adult comic book presenting Japanese Ink Drawing, Art Nouveau, beautiful art, Avant-garde, Neo-Impressionism, Luxurious Elegance, Whimsical and Playful, Abstract Expressionism Art, Surrealism, futuristic style (Masked hacker and computer: 1.6), abstract gas charm, abstract energy field, faux traditional media, atmospheric perspective, low key, highly detailed, Kitagawa Utamaro, Moosa Al Halyan . sleek, modern, ultramodern, high tech, detailed, expressive, dramatic, organic lines and forms, dreamlike and mysterious, Surrealism, High contrast, minimalistic, colorful, stark, dramatic, expressionism, imaginative, fantastical, bight colors, stylized, happy, Whimsical and Playful, extravagant, ornate, designer, opulent, picturesque, lavish, tiny dabs of color, Pointillism, painterly, Neo-Impressionism, unusual, experimental, avant-garde art, sleek, organic forms, long, sinuous, art nouveau style, ink drawing, inkwash, Japanese Ink Drawing. fabulous artwork. best quality, high resolution, decorative, highly detailed, elaborate, ornate, intricate, bright colors, surreal visuals, swirling patterns, DMT art style . futuristic, technological, alien worlds, space themes, advanced civilizations . bleak, post-apocalyptic, somber, dramatic, highly detailed"
+      ],
+      "color": "#232",
+      "bgcolor": "#353",
+      "locked": true
+    },
+    {
+      "id": 14,
+      "type": "ShowText|pysssss",
+      "pos": [
+        3724.658535796508,
+        530.5689421679685
+      ],
+      "size": [
+        340,
+        240
+      ],
+      "flags": {},
+      "order": 35,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 126,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6
+        }
+      ],
+      "title": "Negative Prompt Review 🐍",
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        ",ugly, deformed, noisy, blurry, low contrast, realism, photorealistic, vintage, antique,ugly, deformed, noisy, blurry, low contrast, realistic,ugly, deformed, noisy, blurry, low contrast, realism, photorealistic,ugly, deformed, noisy, blurry, low contrast, drab, boring, moody,ugly, deformed, noisy, blurry, low contrast,ugly, deformed, noisy, blurry, low contrast, photograph, realistic,ugly, deformed, noisy, blurry, low contrast,ugly, deformed, noisy, blurry, low contrast, industrial, mechanical,ugly, deformed, noisy, blurry, low contrast, colorful, vibrant,deformed, ugly, low quality, low resolution,ugly, deformed, noisy, blurry, low contrast,ugly, deformed, noisy, blurry, low contrast,ugly, deformed, noisy, blurry, low contrast, realism, photorealistic, historical, medieval,ugly, deformed, noisy, blurry, low contrast, cheerful, optimistic, vibrant, colorful"
+      ],
+      "color": "#322",
+      "bgcolor": "#533",
+      "locked": true
+    },
+    {
+      "id": 28,
+      "type": "ConcatText_Zho",
+      "pos": [
+        3014.658535796508,
+        150.5689421679688
+      ],
+      "size": [
+        210,
+        66
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_1",
+          "type": "STRING",
+          "link": 37,
+          "widget": {
+            "name": "text_1"
+          }
+        },
+        {
+          "name": "text_2",
+          "type": "STRING",
+          "link": 33,
+          "widget": {
+            "name": "text_2"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [
+            36
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ConcatText_Zho"
+      },
+      "widgets_values": [
+        "",
+        ""
+      ],
+      "locked": true
+    },
+    {
+      "id": 29,
+      "type": "TranslateTextNode",
+      "pos": [
+        2723.1908050836178,
+        122.36894750854492
+      ],
+      "size": [
+        250,
+        230
+      ],
+      "flags": {
+        "pinned": false
+      },
+      "order": 11,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [
+            37
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "title": "Custom Positive Promt",
+      "properties": {
+        "Node name for S&R": "TranslateTextNode"
+      },
+      "widgets_values": [
+        "zh-cn",
+        "en",
+        false,
+        "Manual Trasnlate",
+        "(蒙面黑客与电脑:1.6)，抽象的气韵，抽象的能量场"
+      ],
+      "color": "#232",
+      "bgcolor": "#353",
+      "locked": true
+    },
+    {
+      "id": 8,
+      "type": "ImpactWildcardProcessor",
+      "pos": [
+        2573.1908050836178,
+        402.3689475085449
+      ],
+      "size": [
+        400,
+        220
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "seed",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "seed"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            33
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImpactWildcardProcessor"
+      },
+      "widgets_values": [
+        "__devilkkw/composition/image_composition_styles__, __devilkkw/composition/image_composition_angle_perspective_depth__, __env_concept/lighting__, __env_concept/quality__, __artist-ukioe__, __artist-surreal__",
+        "faux traditional media, atmospheric perspective, low key, highly detailed, Kitagawa Utamaro, Moosa Al Halyan",
+        true,
+        65108340741210,
+        "randomize",
+        "Select the Wildcard to add to the text"
+      ],
+      "color": "#232",
+      "bgcolor": "#353",
+      "locked": true
+    },
+    {
+      "id": 31,
+      "type": "TranslateTextNode",
+      "pos": [
+        2723.1908050836178,
+        672.3689475085448
+      ],
+      "size": [
+        250,
+        220
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [
+            124
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "title": "Custom Negative Prompt",
+      "properties": {
+        "Node name for S&R": "TranslateTextNode"
+      },
+      "widgets_values": [
+        "zh-cn",
+        "en",
+        false,
+        "Manual Trasnlate",
+        ""
+      ],
+      "color": "#322",
+      "bgcolor": "#533",
+      "locked": true
+    },
+    {
+      "id": 50,
+      "type": "Anything Everywhere",
+      "pos": [
+        30,
+        140
+      ],
+      "size": {
+        "0": 210,
+        "1": 26
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "INT",
+          "type": "*",
+          "link": 82,
+          "slot_index": 0,
+          "color_on": ""
+        }
+      ],
+      "properties": {
+        "group_restricted": false,
+        "color_restricted": false,
+        "Node name for S&R": "Anything Everywhere"
+      }
+    },
+    {
+      "id": 34,
+      "type": "Seed (rgthree)",
+      "pos": [
+        30,
+        180
+      ],
+      "size": [
+        210,
+        130
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "SEED",
+          "type": "INT",
+          "links": [
+            82
+          ],
+          "shape": 3,
+          "dir": 4,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Seed (rgthree)"
+      },
+      "widgets_values": [
+        170661884860271,
+        null,
+        null,
+        null
+      ],
+      "color": "#90ba1b",
+      "bgcolor": "#7ca607",
+      "locked": true
+    },
+    {
+      "id": 49,
+      "type": "Fast Groups Muter (rgthree)",
+      "pos": {
+        "0": 40,
+        "1": 550,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 370,
+        "1": 150
+      },
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "OPT_CONNECTION",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "matchColors": "",
+        "matchTitle": "",
+        "showNav": true,
+        "sort": "position",
+        "customSortAlphabet": "",
+        "toggleRestriction": "default"
+      },
+      "color": "#ffa11e",
+      "bgcolor": "#eb8d0a"
+    },
+    {
+      "id": 83,
+      "type": "Note Plus (mtb)",
+      "pos": {
+        "0": 50,
+        "1": 820,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": [
+        360,
+        429
+      ],
+      "flags": {
+        "pinned": true
+      },
+      "order": 16,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Note+ (mtb)",
+      "properties": {},
+      "widgets_values": [
+        "## 这个流程比较简单，先将Seed设置为随机，且静音Image Refiner &amp; Upscale组， 反复运行直到获得满意的Seed，将其设置为复用最后一次Seed，并打开先前静音的组，运行获得最终大图。 \n<br>\n<br>\n## This workflow is relatively simple. First set the Seed to random and mute the Image Refiner &amp; Upscale group. Run it repeatedly until a satisfactory Seed is obtained. Set it to reuse the last Seed. Unmute the Image Refiner &amp; Upscale group. Run to get the final result. Big picture. ",
+        "markdown",
+        ""
+      ],
+      "color": "#22b4b1",
+      "bgcolor": "#0ea09d",
+      "shape": 1
+    },
+    {
+      "id": 18,
+      "type": "Efficient Loader",
+      "pos": [
+        2566.097922428234,
+        1135.718080111825
+      ],
+      "size": [
+        400,
+        490
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "lora_stack",
+          "type": "LORA_STACK",
+          "link": null
+        },
+        {
+          "name": "cnet_stack",
+          "type": "CONTROL_NET_STACK",
+          "link": null
+        },
+        {
+          "name": "positive",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "positive"
+          }
+        },
+        {
+          "name": "negative",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "negative"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            19,
+            20
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "CONDITIONING+",
+          "type": "CONDITIONING",
+          "links": [
+            23
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "CONDITIONING-",
+          "type": "CONDITIONING",
+          "links": [
+            24
+          ],
+          "shape": 3,
+          "slot_index": 2
+        },
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            29
+          ],
+          "shape": 3,
+          "slot_index": 4
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": null,
+          "shape": 3
+        },
+        {
+          "name": "DEPENDENCIES",
+          "type": "DEPENDENCIES",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Efficient Loader"
+      },
+      "widgets_values": [
+        "DreamShaperLCM\\dreamshaperXL_turboDpmppSDE.safetensors",
+        "Baked VAE",
+        -2,
+        "SDXL_Origin_LORA\\sd_xl_offset_example-lora_1.0.safetensors",
+        1,
+        1,
+        "CLIP_POSITIVE",
+        "CLIP_NEGATIVE",
+        "none",
+        "comfy",
+        512,
+        512,
+        1
+      ],
+      "color": "#332222",
+      "bgcolor": "#335533",
+      "shape": 1,
+      "locked": true
+    }
+  ],
+  "links": [
+    [
+      19,
+      18,
+      0,
+      20,
+      0,
+      "MODEL"
+    ],
+    [
+      20,
+      18,
+      0,
+      21,
+      0,
+      "MODEL"
+    ],
+    [
+      23,
+      18,
+      1,
+      21,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      24,
+      18,
+      2,
+      21,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      25,
+      20,
+      0,
+      21,
+      4,
+      "SIGMAS"
+    ],
+    [
+      26,
+      22,
+      0,
+      21,
+      3,
+      "SAMPLER"
+    ],
+    [
+      28,
+      21,
+      0,
+      23,
+      0,
+      "LATENT"
+    ],
+    [
+      29,
+      18,
+      4,
+      24,
+      0,
+      "*"
+    ],
+    [
+      30,
+      24,
+      0,
+      25,
+      0,
+      "*"
+    ],
+    [
+      31,
+      25,
+      0,
+      23,
+      1,
+      "VAE"
+    ],
+    [
+      33,
+      8,
+      0,
+      28,
+      1,
+      "STRING"
+    ],
+    [
+      36,
+      28,
+      0,
+      10,
+      0,
+      "STRING"
+    ],
+    [
+      37,
+      29,
+      0,
+      28,
+      0,
+      "STRING"
+    ],
+    [
+      47,
+      37,
+      0,
+      35,
+      0,
+      "MODEL"
+    ],
+    [
+      48,
+      37,
+      2,
+      35,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      49,
+      37,
+      3,
+      35,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      50,
+      37,
+      4,
+      35,
+      3,
+      "MODEL"
+    ],
+    [
+      51,
+      37,
+      6,
+      35,
+      4,
+      "CONDITIONING"
+    ],
+    [
+      52,
+      37,
+      7,
+      35,
+      5,
+      "CONDITIONING"
+    ],
+    [
+      57,
+      38,
+      0,
+      36,
+      0,
+      "LORA_STACK"
+    ],
+    [
+      58,
+      39,
+      0,
+      35,
+      8,
+      "SAMPLER_NAME"
+    ],
+    [
+      59,
+      39,
+      1,
+      35,
+      9,
+      "SCHEDULER_NAME"
+    ],
+    [
+      62,
+      41,
+      0,
+      42,
+      0,
+      "IMAGE"
+    ],
+    [
+      63,
+      42,
+      0,
+      35,
+      11,
+      "INT"
+    ],
+    [
+      64,
+      42,
+      1,
+      35,
+      12,
+      "INT"
+    ],
+    [
+      65,
+      35,
+      0,
+      43,
+      0,
+      "IMAGE"
+    ],
+    [
+      66,
+      35,
+      0,
+      44,
+      0,
+      "IMAGE"
+    ],
+    [
+      76,
+      46,
+      0,
+      44,
+      1,
+      "MODEL"
+    ],
+    [
+      77,
+      46,
+      2,
+      44,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      78,
+      46,
+      3,
+      44,
+      3,
+      "CONDITIONING"
+    ],
+    [
+      82,
+      34,
+      0,
+      50,
+      0,
+      "*"
+    ],
+    [
+      100,
+      10,
+      0,
+      13,
+      0,
+      "STRING"
+    ],
+    [
+      101,
+      23,
+      0,
+      62,
+      0,
+      "*"
+    ],
+    [
+      102,
+      64,
+      0,
+      41,
+      0,
+      "IMAGE"
+    ],
+    [
+      103,
+      65,
+      0,
+      35,
+      6,
+      "IMAGE"
+    ],
+    [
+      106,
+      44,
+      0,
+      68,
+      0,
+      "*"
+    ],
+    [
+      108,
+      69,
+      0,
+      12,
+      0,
+      "IMAGE"
+    ],
+    [
+      109,
+      40,
+      0,
+      70,
+      0,
+      "*"
+    ],
+    [
+      110,
+      36,
+      2,
+      71,
+      0,
+      "*"
+    ],
+    [
+      111,
+      36,
+      0,
+      72,
+      0,
+      "*"
+    ],
+    [
+      112,
+      10,
+      0,
+      73,
+      0,
+      "*"
+    ],
+    [
+      115,
+      19,
+      0,
+      74,
+      0,
+      "*"
+    ],
+    [
+      124,
+      31,
+      0,
+      10,
+      1,
+      "STRING"
+    ],
+    [
+      126,
+      10,
+      1,
+      14,
+      0,
+      "STRING"
+    ],
+    [
+      127,
+      10,
+      1,
+      73,
+      1,
+      "*"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "Image Refiner & Upscale",
+      "bounding": [
+        2557,
+        1753,
+        2133,
+        1557
+      ],
+      "color": "#8ccc14",
+      "font_size": 48,
+      "locked": true
+    },
+    {
+      "title": "Build Prompt",
+      "bounding": [
+        2563,
+        14,
+        1511,
+        889
+      ],
+      "color": "#850cb0",
+      "font_size": 48,
+      "locked": true
+    },
+    {
+      "title": "Concept Generator (Turbo Version) ",
+      "bounding": [
+        2556,
+        1029,
+        1651,
+        607
+      ],
+      "color": "#0c65c6",
+      "font_size": 48,
+      "locked": true
+    },
+    {
+      "title": "Control Center",
+      "bounding": [
+        13,
+        12,
+        2300,
+        1967
+      ],
+      "color": "#5c26d9",
+      "font_size": 48,
+      "locked": true
+    }
+  ],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}
