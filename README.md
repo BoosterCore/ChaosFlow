@@ -7,6 +7,8 @@ ChaosFlow is a code repository for showcasing some of the ComfyUI workflows I've
 ChaosFlow's workflows are based on simple techniques and tools that you can run on your computer, or you can use some online platforms to run them.ChaosFlow's workflows use some free artificial intelligence libraries and frameworks, which you can find on the web for installation and use.  
 ChaosFlow is an open source project, and you can check out its source code on GitHub or visit its profile page to learn more. If you have any questions or suggestions about ChaosFlow, you can submit an issue or pull request on GitHub. thank you very much for your attention and support, let's enjoy exploring ComfyUI together!  
 
-****  
-# Star History
-<iframe style="width:100%;height:auto;min-width:600px;min-height:400px;" src="https://star-history.com/embed?secret=Z2hwXzFpQ05ZNHhPUktSZGp2eVBmR3BOUmFRaGFzVGRUZTBwNEFYVw==#BoosterCore/ChaosFlow&Date" frameBorder="0"></iframe>
+
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=BoosterCore/ChaosFlow&type=Date)](https://star-history.com/#BoosterCore/ChaosFlow&Date)
