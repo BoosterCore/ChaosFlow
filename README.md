@@ -9,4 +9,4 @@ ChaosFlow is an open source project, and you can check out its source code on Gi
 
 ****  
 # Star History
-<iframe style="width:100%;height:auto;min-width:600px;min-height:400px;" src="https://star-history.com/embed?secret=Z2hwX1RKbUoycHJZbnJ4S2xGNkpsNk5pMUx1MWFKZDU5UjJJM2gwRA==#BoosterCore/ChaosFlow&Date" frameBorder="0"></iframe>
+<iframe style="width:100%;height:auto;min-width:600px;min-height:400px;" src="https://star-history.com/embed?secret=Z2hwXzFpQ05ZNHhPUktSZGp2eVBmR3BOUmFRaGFzVGRUZTBwNEFYVw==#BoosterCore/ChaosFlow&Date" frameBorder="0"></iframe>
