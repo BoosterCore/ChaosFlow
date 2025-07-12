@@ -32,8 +32,8 @@ ChaosFlow mainly collects various workflows created by the author based on Comfy
    - If you receive a "missing node" prompt, first search online for the node name and install the related extensions or dependencies.  
    - 参考 ComfyUI 官方文档或社区教程进行补充安装。  
    - Refer to ComfyUI official docs or community tutorials for additional installation.  
-   - 实在无法解决时，可直接向作者发起 Pull Request 进行提问，或通过自媒体账号私信联系作者。  
-   - If the problem persists, you can open a Pull Request to ask the author or send a private message via the author's social media accounts.
+   - 实在无法解决时，可直接向作者发起 Issue 进行提问，或通过自媒体账号私信联系作者。  
+   - If the problem persists, you can open an Issue to ask the author or send a private message via the author's social media accounts.
 
 ## 常见问题解答 / FAQ ❓
 
